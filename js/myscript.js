@@ -23,11 +23,25 @@ const images = [
 ];
 
 const carousel = document.getElementById('carousel');
+const buttonPrevious = document.getElementById('button-previous');
+const buttonNext = document.getElementById('button-next');
 let activeIndex = 0;
 
 images.forEach(game => addElement('img', '', 'carousel-item', carousel).src = game.image);
 document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
 
+buttonNext.addEventListener('click', () => {
+
+    if (activeIndex >= images.length - 1) {
+        activeIndex = 0;
+
+        } else {
+        activeIndex++;
+        }
+
+    document.querySelector('.carousel-item.active').classList.remove('active');
+    document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
+});
 
 /* FUNCTIONS */
 
