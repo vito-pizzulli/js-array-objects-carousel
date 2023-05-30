@@ -88,7 +88,8 @@ p {
 }
 
 #button-previous,
-#button-next {
+#button-next,
+#button-autoplay {
     position: absolute;
 }
 
@@ -102,4 +103,10 @@ p {
     right: 2%;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#button-autoplay {
+    top: 2%;
+    right: 50%;
+    transform: translateX(50%);
 }

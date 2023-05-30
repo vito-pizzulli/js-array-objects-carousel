@@ -26,9 +26,13 @@ const carousel = document.getElementById('carousel');
 const thumbnails = document.getElementById('thumbnails');
 const buttonPrevious = document.getElementById('button-previous');
 const buttonNext = document.getElementById('button-next');
+const buttonAutoplay = document.getElementById('button-autoplay');
 let activeIndex = 0;
+let autoplayStatus = true;
+
 
 images.forEach((game, index) => {
+
     const carouselItem = addElement('div', '', 'carousel-item', carousel);
     const gameImage = addElement('img', '', 'game-image', carouselItem).src = game.image;
     const textContainer = addElement('div', '', 'text-container', carouselItem);
@@ -45,7 +49,9 @@ images.forEach((game, index) => {
     });
 })
 
-setInterval(() => {
+
+let autoplay = setInterval(() => {
+    
     if (activeIndex >= images.length - 1) {
         activeIndex = 0;
 
@@ -56,6 +62,34 @@ setInterval(() => {
     document.querySelector('.carousel-item.active').classList.remove('active');
     document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
 }, 3000);
+
+
+buttonAutoplay.addEventListener('click', () => {
+
+    if (autoplayStatus === false) {
+
+        autoplay = setInterval(() => {
+            if (activeIndex >= images.length - 1) {
+                activeIndex = 0;
+        
+                } else {
+                activeIndex++;
+                }
+        
+            document.querySelector('.carousel-item.active').classList.remove('active');
+            document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
+        }, 3000);
+
+        autoplayStatus = true;
+        buttonAutoplay.innerHTML = '<i class="fa-solid fa-pause"></i>';
+
+    } else if (autoplayStatus === true) {
+        clearInterval(autoplay);
+        autoplayStatus = false;
+        buttonAutoplay.innerHTML = '<i class="fa-solid fa-play"></i>';
+    }
+})
+
 
 buttonNext.addEventListener('click', () => {
 
@@ -69,6 +103,7 @@ buttonNext.addEventListener('click', () => {
     document.querySelector('.carousel-item.active').classList.remove('active');
     document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
 });
+
 
 buttonPrevious.addEventListener('click', () => {
 
