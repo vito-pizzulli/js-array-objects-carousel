@@ -45,6 +45,18 @@ images.forEach((game, index) => {
     });
 })
 
+setInterval(() => {
+    if (activeIndex >= images.length - 1) {
+        activeIndex = 0;
+
+        } else {
+        activeIndex++;
+        }
+
+    document.querySelector('.carousel-item.active').classList.remove('active');
+    document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
+}, 3000);
+
 buttonNext.addEventListener('click', () => {
 
     if (activeIndex >= images.length - 1) {
