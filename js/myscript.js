@@ -23,6 +23,7 @@ const images = [
 ];
 
 const carousel = document.getElementById('carousel');
+const thumbnails = document.getElementById('thumbnails');
 const buttonPrevious = document.getElementById('button-previous');
 const buttonNext = document.getElementById('button-next');
 let activeIndex = 0;
@@ -34,6 +35,7 @@ images.forEach(game => {
     const gameTitle = addElement('h1', game.title, 'game-title', textContainer);
     const gameText = addElement('p', game.text, 'game-text', textContainer);
     document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
+    const gameThumbnail = addElement('img', '', 'thumbnail-image', thumbnails).src = game.image;
 })
 
 buttonNext.addEventListener('click', () => {
