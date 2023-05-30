@@ -10,6 +10,8 @@ main {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 button {
@@ -23,6 +25,14 @@ button {
 
 button > i {
     font-size: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.5rem;
 }
 
 #carousel {
@@ -54,6 +64,7 @@ button > i {
     right: 2%;
     color: white;
     text-align: end;
+    padding: .2rem;
 }
 
 #carousel > div.carousel-item.active {
