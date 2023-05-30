@@ -68,6 +68,7 @@ p {
 #thumbnails {
     display: flex;
     flex-direction: column;
+    background-color: #bababa;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 12px 0px 30px, rgba(0, 0, 0, 0.12) 4px 0px 6px, rgba(0, 0, 0, 0.17) 12px 0px 13px, rgba(0, 0, 0, 0.09) 3px 0px 5px;
 }
 
