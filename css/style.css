@@ -12,6 +12,7 @@ main {
     height: 100vh;
     font-family: 'Open Sans', sans-serif;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    cursor: default;
 }
 
 button {
@@ -25,6 +26,12 @@ button {
 
 button > i {
     font-size: 2rem;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+button:hover > i {
+    transform: scale(1.3);
 }
 
 h1 {
@@ -43,6 +50,7 @@ p {
 #carousel {
     width: 50%;
     position: relative;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 #carousel > div.carousel-item {
@@ -60,6 +68,7 @@ p {
 #thumbnails {
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 #thumbnails img.thumbnail-image {
@@ -67,6 +76,12 @@ p {
     height: 100%;
     object-fit: cover;
     object-position: top;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+#thumbnails img.thumbnail-image:hover {
+    transform: translate(5%);
 }
 
 #carousel > div.carousel-item {
@@ -109,4 +124,64 @@ p {
     top: 2%;
     right: 50%;
     transform: translateX(50%);
+}
+
+
+/* Responsive Layouts */
+
+/* XS Layout (from 0px to 576px */
+@media screen and (max-width: 576px) {
+    #carousel {
+        width: 70%;
+    }
+
+    button {
+        width: 30px;
+    }
+
+    button > i {
+        font-size: 1.5rem;
+    }
+
+    #thumbnails img.thumbnail-image {
+        width: 100px;
+    }
+}
+
+/* 2K Layout (from 2560px to 3840px */
+@media screen and (min-width: 2560px) {
+    html {
+        font-size: 20px;
+    }
+
+    button {
+        width: 80px;
+    }
+
+    button > i {
+        font-size: 2.5rem;
+    }
+
+    #thumbnails img.thumbnail-image {
+        width: 300px;
+    }
+}
+
+/* 4K Layout (from 3840px to higher resolutions */
+@media screen and (min-width: 3840px) {
+    html {
+        font-size: 30px;
+    }
+
+    button {
+        width: 120px;
+    }
+
+    button > i {
+        font-size: 3rem;
+    }
+
+    #thumbnails img.thumbnail-image {
+        width: 400px;
+    }
 }
