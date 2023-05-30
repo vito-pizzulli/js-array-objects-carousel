@@ -23,8 +23,10 @@ const images = [
 ];
 
 const carousel = document.getElementById('carousel');
+let activeIndex = 0;
 
-images.forEach(game => addElement('img', '', carousel).src = game.image);
+images.forEach(game => addElement('img', '', 'carousel-item', carousel).src = game.image);
+document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
 
 
 /* FUNCTIONS */
@@ -33,11 +35,13 @@ images.forEach(game => addElement('img', '', carousel).src = game.image);
  * This function creates an html element of the chosen type and class, with the chosen text, and adds it at the end of the selected container.
  * @param {*} type The type of html element that will be created. 
  * @param {*} innerText The text that the created element will have inside.
+ * @param {*} class The name of the class that will be added to the created element.
  * @param {*} container The container at the end of which the element will be added.
  */
-function addElement(type, innerText, container) {
+function addElement(type, innerText, elementClass, container) {
     type = document.createElement(type);
     type.innerHTML = innerText;
+    type.classList.add(elementClass);
     container.append(type);
     return type;
 }

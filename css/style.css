@@ -38,6 +38,14 @@ button > i {
     object-position: top;
 }
 
+#carousel > .carousel-item {
+    display: none;
+}
+
+#carousel > .carousel-item.active {
+    display: block;
+}
+
 #button-previous,
 #button-next {
     position: absolute;
