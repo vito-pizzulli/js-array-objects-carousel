@@ -28,14 +28,21 @@ const buttonPrevious = document.getElementById('button-previous');
 const buttonNext = document.getElementById('button-next');
 let activeIndex = 0;
 
-images.forEach(game => {
+images.forEach((game, index) => {
     const carouselItem = addElement('div', '', 'carousel-item', carousel);
     const gameImage = addElement('img', '', 'game-image', carouselItem).src = game.image;
     const textContainer = addElement('div', '', 'text-container', carouselItem);
     const gameTitle = addElement('h1', game.title, 'game-title', textContainer);
     const gameText = addElement('p', game.text, 'game-text', textContainer);
     document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
-    const gameThumbnail = addElement('img', '', 'thumbnail-image', thumbnails).src = game.image;
+    const gameThumbnail = addElement('img', '', 'thumbnail-image', thumbnails);
+    gameThumbnail.src = game.image;
+    
+    gameThumbnail.addEventListener('click', () => {
+        activeIndex = index;
+        document.querySelector('.carousel-item.active').classList.remove('active');
+        document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
+    });
 })
 
 buttonNext.addEventListener('click', () => {
@@ -75,9 +82,9 @@ buttonPrevious.addEventListener('click', () => {
  * @param {*} container The container at the end of which the element will be added.
  */
 function addElement(type, innerText, elementClass, container) {
-    type = document.createElement(type);
-    type.innerHTML = innerText;
-    type.classList.add(elementClass);
-    container.append(type);
-    return type;
+    const element = document.createElement(type);
+    element.innerHTML = innerText;
+    element.classList.add(elementClass);
+    container.append(element);
+    return element;
 }
