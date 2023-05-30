@@ -32,7 +32,7 @@ images.forEach(game => {
     const gameImage = addElement('img', '', 'game-image', carouselItem).src = game.image;
     const textContainer = addElement('div', '', 'text-container', carouselItem);
     const gameTitle = addElement('h1', game.title, 'game-title', textContainer);
-    const gameText = addElement('h3', game.text, 'game-text', textContainer);
+    const gameText = addElement('p', game.text, 'game-text', textContainer);
     document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
 })
 
