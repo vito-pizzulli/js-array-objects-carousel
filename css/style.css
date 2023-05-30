@@ -52,13 +52,13 @@ button > i {
 }
 
 #button-previous {
-    left: 50%;
-    top: 2%;
-    transform: translate(-50%);
+    left: 2%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #button-next {
-    bottom: 2%;
-    left: 50%;
-    transform: translate(-50%);
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
 }
