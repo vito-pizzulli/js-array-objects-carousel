@@ -43,6 +43,20 @@ buttonNext.addEventListener('click', () => {
     document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
 });
 
+buttonPrevious.addEventListener('click', () => {
+
+    if (activeIndex === 0) {
+        activeIndex = images.length - 1;
+
+        } else {
+        activeIndex--;
+        }
+
+    document.querySelector('.carousel-item.active').classList.remove('active');
+    document.querySelectorAll('.carousel-item')[activeIndex].classList.add('active');
+});
+
+
 /* FUNCTIONS */
 
 /**
