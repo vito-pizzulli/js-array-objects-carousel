@@ -125,13 +125,13 @@ p {
 
 #button-autoplay {
     top: 2%;
-    right: 55%;
+    right: 60%;
     transform: translateX(50%);
 }
 
 #button-reverse {
     top: 2%;
-    right: 45%;
+    right: 40%;
     transform: translateX(50%);
 }
 
