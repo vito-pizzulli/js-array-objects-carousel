@@ -31,7 +31,7 @@ button > i {
 }
 
 button:hover > i {
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
 h1 {
@@ -106,7 +106,8 @@ p {
 
 #button-previous,
 #button-next,
-#button-autoplay {
+#button-autoplay,
+#button-reverse {
     position: absolute;
 }
 
@@ -124,7 +125,13 @@ p {
 
 #button-autoplay {
     top: 2%;
-    right: 50%;
+    right: 55%;
+    transform: translateX(50%);
+}
+
+#button-reverse {
+    top: 2%;
+    right: 45%;
     transform: translateX(50%);
 }
 

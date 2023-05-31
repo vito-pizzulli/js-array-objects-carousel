@@ -27,6 +27,7 @@ const thumbnails = document.getElementById('thumbnails');
 const buttonPrevious = document.getElementById('button-previous');
 const buttonNext = document.getElementById('button-next');
 const buttonAutoplay = document.getElementById('button-autoplay');
+const buttonReverse = document.getElementById('button-reverse');
 let activeIndex = 0;
 let autoplayStatus = true;
 
@@ -67,10 +68,20 @@ buttonAutoplay.addEventListener('click', () => {
         buttonAutoplay.innerHTML = '<i class="fa-solid fa-pause"></i>';
 
     } else if (autoplayStatus === true) {
+
         clearInterval(autoplay);
         autoplayStatus = false;
         buttonAutoplay.innerHTML = '<i class="fa-solid fa-play"></i>';
     }
+})
+
+
+buttonReverse.addEventListener('click', () => {
+
+    clearInterval(autoplay);
+    autoplay = setInterval(() => {
+        buttonPrevious.click();
+    }, 3000);
 })
 
 
