@@ -30,6 +30,7 @@ const buttonAutoplay = document.getElementById('button-autoplay');
 const buttonReverse = document.getElementById('button-reverse');
 let activeIndex = 0;
 let autoplayStatus = true;
+let reverseStatus = false;
 
 
 images.forEach((game, index) => {
@@ -57,31 +58,66 @@ let autoplay = setInterval(() => {
 
 
 buttonAutoplay.addEventListener('click', () => {
+    
+    if (reverseStatus === true) {
 
-    if (autoplayStatus === false) {
+        if (autoplayStatus === false) {
 
-        autoplay = setInterval(() => {
-            buttonNext.click();
-        }, 3000);
+            autoplay = setInterval(() => {
+                buttonPrevious.click();
+            }, 3000);
+    
+            autoplayStatus = true;
+            buttonAutoplay.innerHTML = '<i class="fa-solid fa-pause"></i>';
+    
+        } else if (autoplayStatus === true) {
+    
+            clearInterval(autoplay);
+            autoplayStatus = false;
+            buttonAutoplay.innerHTML = '<i class="fa-solid fa-play"></i>';
+        }
 
-        autoplayStatus = true;
-        buttonAutoplay.innerHTML = '<i class="fa-solid fa-pause"></i>';
+    } else if (reverseStatus === false) {
 
-    } else if (autoplayStatus === true) {
+        if (autoplayStatus === false) {
 
-        clearInterval(autoplay);
-        autoplayStatus = false;
-        buttonAutoplay.innerHTML = '<i class="fa-solid fa-play"></i>';
+            autoplay = setInterval(() => {
+                buttonNext.click();
+            }, 3000);
+    
+            autoplayStatus = true;
+            buttonAutoplay.innerHTML = '<i class="fa-solid fa-pause"></i>';
+    
+        } else if (autoplayStatus === true) {
+    
+            clearInterval(autoplay);
+            autoplayStatus = false;
+            buttonAutoplay.innerHTML = '<i class="fa-solid fa-play"></i>';
+        }
     }
 })
 
 
 buttonReverse.addEventListener('click', () => {
 
-    clearInterval(autoplay);
-    autoplay = setInterval(() => {
-        buttonPrevious.click();
-    }, 3000);
+    if (reverseStatus === false) {
+
+        clearInterval(autoplay);
+        autoplay = setInterval(() => {
+            buttonPrevious.click();
+        }, 3000);
+        reverseStatus = true;
+        buttonReverse.innerHTML = '<i class="fa-solid fa-arrow-rotate-right"></i>';
+
+    } else if (reverseStatus === true) {
+
+        clearInterval(autoplay);
+        autoplay = setInterval(() => {
+            buttonNext.click();
+        }, 3000);
+        reverseStatus = false;
+        buttonReverse.innerHTML = '<i class="fa-solid fa-arrow-rotate-left"></i>';
+    }
 })
 
 
